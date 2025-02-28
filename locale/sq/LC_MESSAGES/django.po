@@ -1,0 +1,274 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-07 15:05+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sq\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Home"
+msgstr "Faqja kryesore"
+
+msgid "Our Rooms"
+msgstr "Dhomat"
+
+msgid "Contact"
+msgstr "Kontaktoni"
+
+msgid "Language"
+msgstr "Gjuha"
+
+msgid "English"
+msgstr "Anglisht"
+
+msgid "Albanian"
+msgstr "Shqip"
+
+msgid "Italian"
+msgstr "Italisht"
+
+msgid "Welcome to Oni Apartments Sarande!"
+msgstr "Mirësevini në Oni Apartments Sarandë!"
+
+msgid "Book now"
+msgstr "Rezervoni tani"
+
+msgid "Boasting sea views, Oni Apartments Sarande features accommodation with a balcony, around a few steps from Saranda City Beach. Free WiFi is available throughout the property, and private parking is available on site. Couples particularly like the location — they rated it <b>9.6</b> for a two-person trip."
+msgstr "Duke ofruar pamje nga deti, Oni Apartments Sarandë ofron akomodim me një ballkon, vetëm disa hapa larg nga Plazhi i Qytetit të Sarandës. WiFi falas është i disponueshëm në të gjithë pronën dhe parkim privat është i disponueshëm në vend. Çiftet e pëlqejnë veçanërisht vendndodhjen — ata e vlerësuan atë me <b>9.6</b> për një udhëtim me dy persona."
+
+msgid "Most popular facilities"
+msgstr "Objektet më të pëlqyera"
+
+msgid "Private Parking"
+msgstr "Parkim Privat"
+
+msgid "Beachfront"
+msgstr "Pamje nga deti"
+
+msgid "Free WiFi"
+msgstr "WiFi Falas"
+
+msgid "Family rooms"
+msgstr "Dhoma familjare"
+
+msgid "Non-smoking rooms"
+msgstr "Dhoma kundra duhanpirjes"
+
+msgid "Terrace"
+msgstr "Tarracë"
+
+msgid "Reviews from our guests"
+msgstr "Vlerësime nga mysafirët tanë"
+
+msgid "Room 101"
+msgstr "Dhoma 101"
+
+msgid "65€/night"
+msgstr "65€/nata"
+
+msgid "Apartment 102"
+msgstr "Apartamenti 102"
+
+msgid "80€/night"
+msgstr "80€/nata"
+
+msgid "Apartment 103"
+msgstr "Apartamenti 103"
+
+msgid "85€/night"
+msgstr "85€/nata"
+
+msgid "Room 104"
+msgstr "Dhoma 104"
+
+msgid "Room 105"
+msgstr "Dhoma 105"
+
+msgid "Room 106"
+msgstr "Dhoma 106"
+
+msgid "70€/night"
+msgstr "70€/nata"
+
+msgid "Room 107"
+msgstr "Dhoma 107"
+
+msgid "Room 108"
+msgstr "Dhoma 108"
+
+msgid "Room 109"
+msgstr "Dhoma 109"
+
+msgid "What else is there to do in Saranda?"
+msgstr "Çfarë ka tjetër për të bërë në Sarandë?"
+
+msgid "Contact us and we will be right with you"
+msgstr "Na kontaktoni dhe ne do t'ju kthejmë përgjigje së shpejti"
+
+msgid "Email us!"
+msgstr "Na dërgoni email!"
+
+msgid "Street: “Naim Frasheri”, Sarandë"
+msgstr "Rruga: “Naim Frasheri”, Sarandë"
+
+msgid "Travel reservation form"
+msgstr "Formulari i rezervimit të udhëtimit"
+
+msgid "Full Name *:"
+msgstr "Emri i plotë *:"
+
+msgid "Select the room you like *:"
+msgstr "Zgjidhni dhomën që ju pëlqen *:"
+
+msgid "Apatment 103"
+msgstr "Apartamenti 103"
+
+msgid "Arrival date *:"
+msgstr "Data e mbërritjes *:"
+
+msgid "Number of People *:"
+msgstr "Numri i njerëzve *:"
+
+msgid "Your Message:"
+msgstr "Mesazhi juaj:"
+
+msgid "Submit"
+msgstr "Dërgo"
+
+msgid "View Gallery"
+msgstr "Shikoni Galerinë"
+
+msgid "Book Your Room"
+msgstr "Rezervoni dhomën tuaj"
+
+msgid "/night"
+msgstr "/nata"
+
+msgid "Facilities:"
+msgstr "Objektet:"
+
+msgid "Balcony"
+msgstr "Ballkon"
+
+msgid "Air conditioning"
+msgstr "Kondicioner"
+
+msgid "Safety deposit box"
+msgstr "Kasafortë"
+
+msgid "Sofa"
+msgstr "Divan"
+
+msgid "Hardwood or parquet floors"
+msgstr "Dyshemetë prej druri ose parketi"
+
+msgid "Socket near the bed"
+msgstr "Prizë pranë shtratit"
+
+msgid "Soundproofing"
+msgstr "Izolimi i zërit"
+
+msgid "Private entrance"
+msgstr "Hyrje private"
+
+msgid "Refrigerator"
+msgstr "Frigorifer"
+
+msgid "Tea/Coffee maker"
+msgstr "Përgatitëse për çaj/kafe"
+
+msgid "Iron"
+msgstr "Hekuri"
+
+msgid "Heating"
+msgstr "Ngrohje"
+
+msgid "Flat-screen TV"
+msgstr "TV me ekran të sheshtë"
+
+msgid "Kitchenware"
+msgstr "Enë gatimi"
+
+msgid "Kitchenette"
+msgstr "Aneks kuzhine"
+
+msgid "Outdoor furniture"
+msgstr "Mobilje të jashtme"
+
+msgid "Outdoor dining area"
+msgstr "Zonë ngrënieje në ambient të hapur"
+
+msgid "Patio"
+msgstr "Verandë"
+
+msgid "Laptop safe"
+msgstr "Kasafortë për laptop"
+
+msgid "Wardrobe or closet"
+msgstr "Gardërobë ose dollap"
+
+msgid "Stovetop"
+msgstr "Pianurë"
+
+msgid "Dining area"
+msgstr "Zonë ngrënieje"
+
+msgid "Dining table"
+msgstr "Tavolinë ngrënieje"
+
+msgid "Private apartment in building"
+msgstr "Apartament privat në ndërtesë"
+
+msgid "Clothes rack"
+msgstr "Varëse rrobash"
+
+msgid "Baby safety gates"
+msgstr "Porta sigurie për foshnja"
+
+msgid "In your private kitchenette:"
+msgstr "Në kuzhinën tuaj private:"
+
+msgid "Electric kettle"
+msgstr "Çajnik elektrik"
+
+msgid "In your private bathroom:"
+msgstr "Në banjën tuaj private:"
+
+msgid "Toilet"
+msgstr "Tualet"
+
+msgid "Shower"
+msgstr "Dush"
+
+msgid "Towels"
+msgstr "Peshqirë"
+
+msgid "Hairdryer"
+msgstr "Tharëse flokësh"
+
+msgid "Toilet paper"
+msgstr "Letër higjienike"
+
+msgid "View:"
+msgstr "Pamje:"
+
+msgid "Sea view"
+msgstr "Pamje nga deti"
+
+msgid "Mountain view"
+msgstr "Pamje nga mali"
+
+msgid "City view"
+msgstr "Pamje nga qyteti"

@@ -1,0 +1,237 @@
+{% block start %}
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+  crossorigin="anonymous"
+/>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"
+></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  body {
+    background: linear-gradient(135deg, #08345d, #97a2cf);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    padding: 5%;
+    margin: 0;
+  }
+  .payment {
+    max-width: 100%;
+    width: 600px;
+    padding: 4%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2%;
+  }
+
+  .inputBox {
+    margin-bottom: 3%;
+  }
+
+  .inputBox label,
+  .inputBox span {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 1.5%;
+    display: block;
+  }
+
+  .inputBox input {
+    width: 100%;
+    padding: 3%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+  }
+
+  .flex .inputBox {
+    flex: 1;
+    min-width: 48%;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    background: #074c96;
+    color: white;
+    border: none;
+    padding: 3%;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 3%;
+  }
+
+  input[type="submit"]:hover {
+    background: #2f5c8c;
+  }
+
+  .info-box {
+    background: #f8f9fa;
+    padding: 3%;
+    border-radius: 5px;
+    border-left: 4px solid #074c96;
+    margin-bottom: 3%;
+  }
+
+  .info-title {
+    font-weight: bold;
+    color: #333;
+    display: block;
+  }
+
+  .info-text {
+    margin: 0;
+    color: #555;
+  }
+
+  @media (max-width: 768px) {
+    .payment {
+      width: 100%;
+      padding: 5%;
+    }
+
+    .title {
+      font-size: 1.5rem;
+    }
+
+    .inputBox label,
+    .inputBox span {
+      font-size: 1rem;
+    }
+
+    .inputBox input {
+      font-size: 1rem;
+    }
+
+    .flex .inputBox {
+      min-width: 100%;
+    }
+
+    input[type="submit"] {
+      font-size: 1rem;
+      padding: 2.5%;
+    }
+  }
+</style>
+
+<div class="container payment">
+  <form
+    action="{% url 'submit_booking' room_name=room_name check_in_date=check_in check_out_date=check_out %}"
+    method="POST"
+  >
+    {% csrf_token %}
+    <div class="row g-3">
+      <div class="col-12">
+        <h1 class="title">Guest's information</h1>
+        <div class="inputBox">
+          <label>Room Name:</label>
+          <input
+            type="text"
+            name="room_name"
+            value="{{ room_name }}"
+            readonly
+          />
+        </div>
+        <div class="inputBox">
+          <label>Full Name:</label>
+          <input type="text" name="full_name" required />
+        </div>
+        <div class="inputBox">
+          <label>Number of People:</label>
+          <input
+            type="number"
+            name="adults"
+            value="{{ adults }}"
+            placeholder="2"
+          />
+        </div>
+        <div class="inputBox">
+          <label>Check-in Date:</label>
+          <input type="date" name="check_in" value="{{ check_in }}" readonly />
+        </div>
+        <div class="inputBox">
+          <label>Check-out Date:</label>
+          <input
+            type="date"
+            name="check_out"
+            value="{{ check_out }}"
+            readonly
+          />
+        </div>
+        <input
+          type="hidden"
+          name="price_per_night"
+          value="{{ price_per_night }}"
+        />
+      </div>
+      <div class="col-12">
+        <h1 class="title">Payment</h1>
+        <div class="inputBox">
+          <span>Name on Card:</span>
+          <input
+            type="text"
+            name="card_holder"
+            placeholder="FirstName LastName"
+            required
+          />
+        </div>
+        <div class="inputBox">
+          <label>Email:</label>
+          <input type="email" name="email" required />
+        </div>
+        <div class="inputBox">
+          <span>Card Number:</span>
+          <input
+            type="number"
+            name="card_number"
+            placeholder="1111-2222-3333-4444"
+            required
+          />
+        </div>
+        <div class="flex">
+          <div class="inputBox">
+            <span>Exp Month:</span>
+            <input type="text" name="exp_month" placeholder="01" required />
+          </div>
+          <div class="inputBox">
+            <span>Exp Year:</span>
+            <input type="number" name="exp_year" placeholder="2030" required />
+          </div>
+        </div>
+        <div class="inputBox">
+          <span>CVV:</span>
+          <input type="text" name="cvv" placeholder="123" required />
+        </div>
+      </div>
+    </div>
+    <div class="info-box">
+      <span class="info-title">Information</span>
+      <p class="info-text">
+        The payment will be collected 15 days upon arrival!
+      </p>
+    </div>
+    <input type="submit" value="Confirm Booking" />
+  </form>
+</div>
+{% endblock %}

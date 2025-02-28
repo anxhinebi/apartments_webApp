@@ -1,0 +1,274 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-07 15:05+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sq\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Home"
+msgstr "Pagina principale"
+
+msgid "Our Rooms"
+msgstr "Le nostre camere"
+
+msgid "Contact"
+msgstr "Contatto"
+
+msgid "Language"
+msgstr "Lingua"
+
+msgid "English"
+msgstr "Inglese"
+
+msgid "Albanian"
+msgstr "Albanese"
+
+msgid "Italian"
+msgstr "Italiano"
+
+msgid "Welcome to Oni Apartments Sarande!"
+msgstr "Benvenuti a Oni Apartments Saranda!"
+
+msgid "Book now"
+msgstr "Prenota ora"
+
+msgid "Boasting sea views, Oni Apartments Sarande features accommodation with a balcony, around a few steps from Saranda City Beach. Free WiFi is available throughout the property, and private parking is available on site. Couples particularly like the location — they rated it <b>9.6</b> for a two-person trip."
+msgstr "Con vista sul mare, Oni Apartments Saranda offre alloggi con balcone, a pochi passi dalla spiaggia di Saranda City Beach. Il WiFi gratuito è disponibile in tutta la struttura e il parcheggio privato è disponibile in loco. Le coppie apprezzano particolarmente la posizione — l'hanno valutata <b>9.6</b> per un viaggio di due persone."
+
+msgid "Most popular facilities"
+msgstr "Servizi più richiesti"
+
+msgid "Private Parking"
+msgstr "Parcheggio privato"
+
+msgid "Beachfront"
+msgstr "Fronte spiaggia"
+
+msgid "Free WiFi"
+msgstr "WiFi gratuito"
+
+msgid "Family rooms"
+msgstr "Camere familiari"
+
+msgid "Non-smoking rooms"
+msgstr "Camere non fumatori"
+
+msgid "Terrace"
+msgstr "Terrazza"
+
+msgid "Reviews from our guests"
+msgstr "Recensioni dei nostri ospiti"
+
+msgid "Room 101"
+msgstr "Camera 101"
+
+msgid "65€/night"
+msgstr "65€/notte"
+
+msgid "Apartment 102"
+msgstr "Appartamento 102"
+
+msgid "80€/night"
+msgstr "80€/notte"
+
+msgid "Apartment 103"
+msgstr "Appartamento 103"
+
+msgid "85€/night"
+msgstr "85€/notte"
+
+msgid "Room 104"
+msgstr "Camera 104"
+
+msgid "Room 105"
+msgstr "Camera 105"
+
+msgid "Room 106"
+msgstr "Camera 106"
+
+msgid "70€/night"
+msgstr "70€/notte"
+
+msgid "Room 107"
+msgstr "Camera 107"
+
+msgid "Room 108"
+msgstr "Camera 108"
+
+msgid "Room 109"
+msgstr "Camera 109"
+
+msgid "What else is there to do in Saranda?"
+msgstr "Cos'altro fare a Saranda?"
+
+msgid "Contact us and we will be right with you"
+msgstr "Contattaci e ti risponderemo al più presto"
+
+msgid "Email us!"
+msgstr "Inviaci un'email!"
+
+msgid "Street: “Naim Frasheri”, Sarandë"
+msgstr "Via: “Naim Frasheri”, Saranda"
+
+msgid "Travel reservation form"
+msgstr "Modulo di prenotazione viaggio"
+
+msgid "Full Name *:"
+msgstr "Nome completo *:"
+
+msgid "Select the room you like *:"
+msgstr "Seleziona la camera che preferisci *:"
+
+msgid "Apatment 103"
+msgstr "Appartamento 103"
+
+msgid "Arrival date *:"
+msgstr "Data di arrivo *:"
+
+msgid "Number of People *:"
+msgstr "Numero di persone *:"
+
+msgid "Your Message:"
+msgstr "Il tuo messaggio:"
+
+msgid "Submit"
+msgstr "Invia"
+
+msgid "View Gallery"
+msgstr "Vedi galleria"
+
+msgid "Book Your Room"
+msgstr "Prenota la tua camera"
+
+msgid "/night"
+msgstr "/notte"
+
+msgid "Facilities:"
+msgstr "Servizi:"
+
+msgid "Balcony"
+msgstr "Balcone"
+
+msgid "Air conditioning"
+msgstr "Aria condizionata"
+
+msgid "Safety deposit box"
+msgstr "Cassaforte"
+
+msgid "Sofa"
+msgstr "Divano"
+
+msgid "Hardwood or parquet floors"
+msgstr "Pavimenti in legno o parquet"
+
+msgid "Socket near the bed"
+msgstr "Presa elettrica vicino al letto"
+
+msgid "Soundproofing"
+msgstr "Insonorizzazione"
+
+msgid "Private entrance"
+msgstr "Ingresso privato"
+
+msgid "Refrigerator"
+msgstr "Frigorifero"
+
+msgid "Tea/Coffee maker"
+msgstr "Bollitore per tè/caffè"
+
+msgid "Iron"
+msgstr "Ferro da stiro"
+
+msgid "Heating"
+msgstr "Riscaldamento"
+
+msgid "Flat-screen TV"
+msgstr "TV a schermo piatto"
+
+msgid "Kitchenware"
+msgstr "Utensili da cucina"
+
+msgid "Kitchenette"
+msgstr "Angolo cottura"
+
+msgid "Outdoor furniture"
+msgstr "Arredi da esterno"
+
+msgid "Outdoor dining area"
+msgstr "Zona pranzo all'aperto"
+
+msgid "Patio"
+msgstr "Patio"
+
+msgid "Laptop safe"
+msgstr "Cassaforte per laptop"
+
+msgid "Wardrobe or closet"
+msgstr "Armadio o guardaroba"
+
+msgid "Stovetop"
+msgstr "Piano cottura"
+
+msgid "Dining area"
+msgstr "Zona pranzo"
+
+msgid "Dining table"
+msgstr "Tavolo da pranzo"
+
+msgid "Private apartment in building"
+msgstr "Appartamento privato in edificio"
+
+msgid "Clothes rack"
+msgstr "Appendiabiti"
+
+msgid "Baby safety gates"
+msgstr "Cancelletti di sicurezza per bambini"
+
+msgid "In your private kitchenette:"
+msgstr "Nel tuo angolo cottura privato:"
+
+msgid "Electric kettle"
+msgstr "Bollitore elettrico"
+
+msgid "In your private bathroom:"
+msgstr "Nel tuo bagno privato:"
+
+msgid "Toilet"
+msgstr "WC"
+
+msgid "Shower"
+msgstr "Doccia"
+
+msgid "Towels"
+msgstr "Asciugamani"
+
+msgid "Hairdryer"
+msgstr "Asciugacapelli"
+
+msgid "Toilet paper"
+msgstr "Carta igienica"
+
+msgid "View:"
+msgstr "Vista:"
+
+msgid "Sea view"
+msgstr "Vista mare"
+
+msgid "Mountain view"
+msgstr "Vista montagna"
+
+msgid "City view"
+msgstr "Vista città"

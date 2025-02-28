@@ -1,0 +1,426 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'projekt.css' %}" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <title>Projekt</title>
+    <style>
+      .dropdown-menu {
+        background-color: #48423e;
+      }
+    
+      .dropdown-item {
+        color: aliceblue;
+      }
+    
+      .dropdown-item:hover {
+        background-color: #5a524d;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar sticky-top navbar-expand-lg border-bottom border-body"
+      data-bs-theme="light"
+      style="position: sticky;"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="{% static 'logoOni.png' %}"
+            alt="Logo"
+            width="120"
+            height="70"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#home">
+                {% trans "Home" %}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#rooms">{% trans "Our Rooms" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">{% trans "Contact" %}</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {% trans "Language" %}
+              </a>
+              <ul class="dropdown-menu">
+                <form action="{% url 'set_language' %}" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.path }}">
+                  <button class="dropdown-item"  type="submit" name="language" value="en">
+                    {% trans "English" %}
+                  </button>
+                  <button class="dropdown-item" type="submit" name="language" value="sq">
+                    {% trans "Albanian" %}
+                  </button>
+                  <button class="dropdown-item" type="submit" name="language" value="it">
+                    {% trans "Italian" %}
+                  </button>
+                </form>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="background-section" id="home">
+      <div class="background-text">
+        <h1 style="-webkit-text-stroke: 0.5px #212a4d;"><b>{% trans "Welcome to Oni Apartments Sarande!" %}</b></h1><br>
+        <button class="btn btn-primary" id="bookButton">{% trans "Book now" %}</button>
+      </div>
+    </div>
+    <br />
+    <section class="hero text-center bg-dark-bg-gradient" style="font-size: 150%;">
+      <div class="container">
+         <img src="https://www.pngplay.com/wp-content/uploads/7/Decorative-Line-Gold-Free-PNG.png" alt="foto" style="height: 20%; width: 60%;">
+        <p>
+          {% blocktrans %}
+  Boasting sea views, Oni Apartments Sarande features accommodation with
+  a balcony, around a few steps from Saranda City Beach. Free WiFi is available throughout the property, and private parking is
+  available on site. Couples particularly like the location — they rated it <b>9.6</b> for a two-person trip.
+  {% endblocktrans %}
+        </p>
+      </div>
+      <div class="container">
+        <h4 style="color: rgb(173, 136, 43);"><b>{% trans "Most popular facilities" %}</b></h4>
+        <div class="row">
+          <div class="col">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-p-circle" viewBox="0 0 16 16">
+              <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.5 4.002h2.962C10.045 4.002 11 5.104 11 6.586c0 1.494-.967 2.578-2.55 2.578H6.784V12H5.5zm2.77 4.072c.893 0 1.419-.545 1.419-1.488s-.526-1.482-1.42-1.482H6.778v2.97z"/>
+            </svg> {% trans "Private Parking" %}</p>
+          </div>
+          <div class="col">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="none"><path fill="currentColor" d="M10 5.196c1.5-2.598 5.098-2.83 7.696-1.33s4.196 4.732 2.696 7.33l-3.464-2l-1.732-1l-1.732-1z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.696 3.866C15.098 2.366 11.5 2.598 10 5.196l3.464 2m4.232-3.33c2.598 1.5 4.196 4.732 2.696 7.33l-5.196-3m2.5-4.33l.5-.866m-.5.866c-1.821.488-2.982 1.165-4.232 3.33m4.232-3.33c.488 1.821.482 3.165-.768 5.33m-1.732-1l-1.732-1m1.732 1l-3 5.196M3 21l.88-1.056a2 2 0 0 1 3.139.08v0a2 2 0 0 0 3.107.118l.19-.218a2.236 2.236 0 0 1 3.367 0l.191.218c.838.957 2.344.9 3.107-.117v0a2 2 0 0 1 3.14-.08L21 21M6.708 16A7.97 7.97 0 0 1 12 14a7.97 7.97 0 0 1 5.292 2"/></g></svg> {% trans "Beachfront" %}</p>
+          </div>
+          <div class="col">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21q-1.05 0-1.775-.725T9.5 18.5t.725-1.775T12 16t1.775.725t.725 1.775t-.725 1.775T12 21m-5.65-5.65l-2.1-2.15q1.475-1.475 3.463-2.337T12 10t4.288.875t3.462 2.375l-2.1 2.1q-1.1-1.1-2.55-1.725T12 13t-3.1.625t-2.55 1.725M2.1 11.1L0 9q2.3-2.35 5.375-3.675T12 4t6.625 1.325T24 9l-2.1 2.1q-1.925-1.925-4.462-3.012T12 7T6.563 8.088T2.1 11.1"/></svg> {% trans "Free WiFi" %}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="currentColor" d="M9.5 7.5a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 9.5 7.5M14.27 4h-2.54A1.73 1.73 0 0 0 10 5.73V9a1 1 0 0 0 1 1v6h4v-6a1 1 0 0 0 1-1V5.73A1.73 1.73 0 0 0 14.27 4"/><path fill="currentColor" d="M15 2a2 2 0 1 1-3.999.001A2 2 0 0 1 15 2M4.27 5H1.73a1.73 1.73 0 1 0 .001 3.461A1.73 1.73 0 0 0 1.73 5A1.73 1.73 0 0 0 0 6.73V9a1 1 0 0 0 1 1l-1 3h1v3h4v-3h1l-1-3a1 1 0 0 0 1-1V6.73A1.73 1.73 0 0 0 4.27 5"/><path fill="currentColor" d="M5 3a2 2 0 1 1-3.999.001A2 2 0 0 1 5 3m2 10v3h2v-3a1 1 0 0 0 1-1v-1.54A1.46 1.46 0 0 0 8.54 9H7.46A1.46 1.46 0 0 0 6 10.46V12a1 1 0 0 0 1 1"/></svg> {% trans "Family rooms" %}</p>
+          </div>
+          <div class="col">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" d="M8.5 11.5h-8v5h13m-2-5h9v5h-4m7-5.5v6m-9-16v1A6.5 6.5 0 0 0 21 8.5m2.5.5V5.5H21A3.5 3.5 0 0 1 17.5 2V1M.5.5l23 23"/></svg> {% trans "Non-smoking rooms" %}</p>
+          </div>
+          <div class="col">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m3 14l1 5m0 0l-1 3m1-3h2.653c.704 0 .87.14.986.836L8 22m13-8l-1 5m0 0l1 3m-1-3h-2.653c-.704 0-.87.14-.986.836L16 22m-4-12v12M4.6 7.407c2.07-.969 4.153-2.507 5.69-4.043C11.199 2.454 11.654 2 12 2s.8.455 1.711 1.364c1.536 1.535 3.619 3.074 5.688 4.043c.704.33 1.134.736 1.474 1.528c.26.605.143 1.065-.566 1.065H3.693c-.71 0-.826-.46-.566-1.065c.34-.792.77-1.198 1.473-1.528M11 22h2m-4-7h6" color="currentColor"/></svg> {% trans "Terrace" %}</p>
+          </div>
+        </div><hr>
+      </div>
+    </section>
+    <br />
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <h1 class="text-center">{% trans "Reviews from our guests" %}</h1><br>
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      </div>
+    
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'review1.png' %}" class="d-block w-100" style="height:80%;" alt="Review 1">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'review2.png' %}" class="d-block w-100" style="height: 80%;" alt="Review 2">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'review3.png' %}" class="d-block w-100" style="height:80%;" alt="Review 3">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'review4.png' %}" class="d-block w-100" style="height: 80%;" alt="Review 4">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'review5.png' %}" class="d-block w-100" style="height: 80%;" alt="Review 5">
+        </div>
+      </div>
+    
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <section id="rooms">
+    <div class="container my-5"><hr><h2 class="text-center mb-4">{% trans "Our Rooms" %}</h2>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="p-2">
+            <a href="{% url 'room_detail' room_id=101 %}"><img src="{% static 'dhomat/Room101/101_1.jpeg' %}" class="room-image w-100 rounded" alt="Photo 1" /></a>
+            <h3 class="roomName float-start">{% trans "Room 101" %}</h3>
+            <h5 class="roomPrice float-end">{% trans "65€/night" %}</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-2">
+            <a href="{% url 'room_detail' room_id=102 %}"><img src="{% static 'dhomat/Room102/102_1.jpeg' %}" class="room-image w-100 rounded" alt="Photo 2" /></a>
+            <h3 class="roomName float-start">{% trans "Apartment 102" %}</h3>
+            <h5 class="roomPrice float-end">{% trans "80€/night" %}</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-2">
+            <a href="{% url 'room_detail' room_id=103 %}"><img src="{% static 'dhomat/Room103/103_1.jpeg' %}" class="room-image w-100 rounded" alt="Photo 3" /></a>
+            <h3 class="roomName float-start">{% trans "Apartment 103" %}</h3>
+            <h5 class="roomPrice float-end">{% trans "85€/night" %}</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-2">
+            <a href="{% url 'room_detail' room_id=104 %}"><img src="{% static 'dhomat/Room104/104_1.jpeg' %}" class="room-image w-100 rounded" alt="Photo 4" /></a>
+            <h3 class="roomName float-start">{% trans "Room 104" %}</h3>
+            <h5 class="roomPrice float-end">{% trans "65€/night" %}</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-2">
+            <a href="{% url 'room_detail' room_id=105 %}"><img src="{% static 'dhomat/Room105/105_1.jpeg' %}" class="room-image w-100 rounded" alt="Photo 5" /></a>
+            <h3 class="roomName float-start">{% trans "Room 105" %}</h3>
+            <h5 class="roomPrice float-end">{% trans "65€/night" %}</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-2">
+            <a href="{% url 'room_detail' room_id=106 %}"><img src="{% static 'dhomat/Room106/106_1.jpeg' %}" class="room-image w-100 rounded" alt="Photo 6" /></a>
+            <h3 class="roomName float-start">{% trans "Room 106" %}</h3>
+            <h5 class="roomPrice float-end">{% trans "70€/night" %}</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-2">
+            <a href="{% url 'room_detail' room_id=107 %}"><img src="{% static 'dhomat/Room107/107_1.jpeg' %}" class="room-image w-100 rounded" alt="Photo 7" /></a>
+            <h3 class="roomName float-start">{% trans "Room 107" %}</h3>
+            <h5 class="roomPrice float-end">{% trans "80€/night" %}</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-2">
+            <a href="{% url 'room_detail' room_id=108 %}"><img src="{% static 'dhomat/Room108/108_1.jpeg' %}" class="room-image w-100 rounded" alt="Photo 8" /></a>
+            <h3 class="roomName float-start">{% trans "Room 108" %}</h3>
+            <h5 class="roomPrice float-end">{% trans "80€/night" %}</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-2">
+            <a href="{% url 'room_detail' room_id=109 %}"><img src="{% static 'dhomat/Room109/109_1.jpeg' %}" class="room-image w-100 rounded" alt="Photo 9" /></a>
+            <h3 class="roomName float-start">{% trans "Room 109" %}</h3>
+            <h5 class="roomPrice float-end">{% trans "80€/night" %}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('section') === 'rooms') {
+          window.location.hash = 'rooms';
+      }
+  </script>
+  </section>
+    <div class="container">
+      <h3 class="float-start" style="padding-top: 1%;">{% trans "What else is there to do in Saranda?" %}</h3>
+      <div class="d-flex justify-content-center gap-4  float-end">
+        <h1><a
+          href="https://www.visitsaranda.net/food-drinks/hojza-lounge-terrace/" target="_blank"
+          class="link-offset-2 link-underline link-underline-opacity-0 hover-effect"
+          >🍸</a
+        ></h1>
+        <h1><a
+          href="https://www.visitsaranda.net/see/butrint-national-park/" target="_blank"
+          class="link-offset-2 link-underline link-underline-opacity-0 hover-effect"
+          >🎭</a
+        ></h1>
+        <h1><a
+          href="https://www.visitsaranda.net/see/mirror-beach/" target="_blank"
+          class="link-offset-2 link-underline link-underline-opacity-0 hover-effect"
+          >🏖️</a
+        ></h1>
+        <h1><a
+          href="https://www.visitsaranda.net/see/lekursi-castle/" target="_blank"
+          class="link-offset-2 link-underline link-underline-opacity-0 hover-effect"
+          >🏰</h1></a>
+      </div>
+    </div>
+    <footer class="bd-footer py-2 py-md-2 mt-5 text-white" id="contact">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-md-6 d-flex align-items-center justify-content-start"
+            style="height: 500px"
+          >
+            <div>
+              <h4>{% trans "Contact us and we will be right with you" %}</h4>
+              <br />
+              📞 +355 69 565 9507 <br />
+              <a
+                href="mailto:anxhinebi@gmail.com"
+                class="link-offset-2 link-underline link-underline-opacity-0"
+                >✉️ {% trans "Email us!" %}</a
+              ><br />
+              📍 {% trans "Street: “Naim Frasheri”, Sarandë" %} <br>
+              <a href="https://maps.app.goo.gl/hXpTMGwzPJvWn27AA" target="_blank"><img src="{% static 'location.png' %}" class="hover-effect" alt="location" style="height: 40%; width: 90%;"></a>
+            </div>
+          </div>
+          <div class="col-md-6 text-center">
+            <br><h1>{% trans "Travel reservation form" %}</h1>
+            <br />
+            <form method="post" autocomplete="on" action="{% url 'contactForm' %}">
+              {% csrf_token %}
+              <div class="col-12">
+                <label class="visually-hidden" for="fullName" id="css"
+                  >{% trans "Full Name *:" %}</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="FullName LastName"
+                  id="fullName"
+                  name="fullName"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label class="visually-hidden" for="email" id="css"
+                  >Email *:</label
+                >
+                <div class="input-group">
+                  <div class="input-group-text">@</div>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="visually-hidden" for="package" id="css"
+                  >{% trans "Select the room you like *:" %}</label
+                >
+                <select
+                  class="form-select dark-input"
+                  name="package"
+                  id="package"
+                  required
+                >
+                  <option value="Deluxe Triple Room 101">{% trans "Room 101" %}</option>
+                  <option value="Apartment With View 102">{% trans "Apartment 102" %}</option>
+                  <option value="Apartment With View 103">{% trans "Apatment 103" %}</option>
+                  <option value="Deluxe Triple Room 104">{% trans "Room 104" %}</option>
+                  <option value="Deluxe Triple Room 105">{% trans "Room 105" %}</option>
+                  <option value="Deluxe Triple Room 106">{% trans "Room 106" %}</option>
+                  <option value="Deluxe Triple Room 107">{% trans "Room 107" %}</option>
+                  <option value="Deluxe Triple Room with Sea View 108">{% trans "Room 108" %}</option>
+                  <option value="Deluxe Triple Room with Sea View 109">{% trans "Room 109" %}</option>
+                </select>
+              </div>
+              <div class="col-12" style="padding-top: 2%;">
+                <label class="visually-hidden" for="date" id="checkIn"
+                  >{% trans "Arrival date *:" %}</label
+                >
+                <div class="input-group">
+                  <input
+                    type="date"
+                    class="form-control checkIn"
+                    id="date"
+                    name="date"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="visually-hidden" for="noPeople" id="css"
+                  >{% trans "Number of People *:" %}</label
+                >
+                <div class="input-group">
+                  <div class="input-group-text">Number of People</div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="noPeople"
+                    name="noPeople"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="visually-hidden" for="message" id="css"
+                  >{% trans "Your Message:" %}</label
+                >
+                <textarea
+                  name="message"
+                  class="form-control"
+                  id="message"
+                  rows="4"
+                  placeholder="Type your message here..."
+                ></textarea>
+              </div>
+              <div class="col-12 mt-3">
+                <button type="submit" class="btn w-100">
+                  {% trans "Submit" %}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <p class="text-center mt-4">
+          Copyright &copy; 201. All rights reserved
+        </p>
+      </div>
+    </footer>
+    <script src="{% static 'projekt.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(135deg, #08345d, #97a2cf);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    padding: 15px;
+  }
+  .success-container {
+    text-align: center;
+  }
+
+  .success-message {
+    font-size: 300%;
+    font-weight: bold;
+    color: #074c96;
+    -webkit-text-stroke-color: #ced2e3;
+    -webkit-text-stroke-width: 0.5px;
+    margin-bottom: 20px;
+  }
+
+  .home-button {
+    display: inline-block;
+    padding: 2% 4%;
+    font-size: 120%;
+    color: #ced2e3;
+    background-color: #0a417c;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+  }
+
+  .home-button:hover {
+    background-color: #071d34;
+  }
+</style>
+
+<div class="container success-container">
+  {% if messages %}
+  <div class="success-message">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="success-message">
+    <p>Thank you for choosing Oni Apartments Sarandë!</p>
+  </div>
+  {% endif %}
+
+  <a href="{% url 'home' %}" class="home-button">Return Home</a>
+</div>
+{% endblock %}

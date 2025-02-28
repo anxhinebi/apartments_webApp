@@ -1,0 +1,412 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'projekt.css' %}" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title id="room-title">Room</title>
+    <style>
+      .dropdown-menu {
+        background-color: #48423e;
+      }
+
+      .dropdown-item {
+        color: aliceblue;
+      }
+
+      .dropdown-item:hover {
+        background-color: #5a524d;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav
+      class="navbar sticky-top navbar-expand-lg border-bottom border-body"
+      data-bs-theme="light"
+      style="position: sticky"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="{% static 'logoOni.png' %}"
+            alt="Logo"
+            width="120"
+            height="70"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'home' %}">
+                {% trans "Home" %}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}#rooms"
+                >{% trans "Our Rooms" %}</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">{% trans "Contact" %}</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {% trans "Language" %}
+              </a>
+              <ul class="dropdown-menu">
+                <form action="{% url 'set_language' %}" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.path }}" />
+                  <button
+                    class="dropdown-item"
+                    type="submit"
+                    name="language"
+                    value="en"
+                  >
+                    {% trans "English" %}
+                  </button>
+                  <button
+                    class="dropdown-item"
+                    type="submit"
+                    name="language"
+                    value="sq"
+                  >
+                    {% trans "Albanian" %}
+                  </button>
+                  <button
+                    class="dropdown-item"
+                    type="submit"
+                    name="language"
+                    value="it"
+                  >
+                    {% trans "Italian" %}
+                  </button>
+                </form>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Room Description -->
+    <div class="rooms container">
+      <h2 class="text-center" id="room-name">{{ room.name }}</h2>
+      <hr />
+      <div
+        class="background-room"
+        id="room-background"
+        style="background-image: url('{{ room.bckgImagePath }}');"
+      >
+        <div class="background-text">
+          <button id="galleryButton" class="btn btn-primary">
+            {% trans "View Gallery" %}
+          </button>
+        </div>
+        <div id="gallery-container">
+          {% for image in room.galleryPaths %}
+          <div class="gallery-item">
+            <img src="{{ image }}" alt="Room {{ room.name }}" class="image" />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <br />
+      <p id="room-size">{{ room.size|safe }}</p>
+      <p id="room-description">{{ room.description }}</p>
+    </div>
+
+    <!-- Booking Section -->
+    <section class="book">
+      <h2 class="text-center">{% trans "Book Your Room" %}</h2>
+      <br />
+      <div class="flex_space">
+        <div class="text">
+          <h1>
+            <span id="room-price" class="roomPrice">{{ room.price }}</span>
+            {% trans "/night" %}
+          </h1>
+        </div>
+        <div class="forms">
+          <form
+            class="grid"
+            id="checkAvailabilityForm"
+            action="{% url 'check_availability' %}"
+            method="post"
+          >
+            {% csrf_token %}
+            <input type="hidden" name="room_name" value="{{ room.name }}" />
+            <input type="date" id="checkIn" name="check_in" required />
+            <input type="date" id="checkOut" name="check_out" required />
+            <input
+              type="number"
+              placeholder="Adults"
+              name="adults"
+              min="1"
+              max="3"
+              required
+            />
+            <input type="number" placeholder="Children" />
+            <input type="submit" value="CHECK AVAILABILITY" />
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Amenities -->
+    <div class="amenities container">
+      <div class="row">
+        <div class="col-lg-8">
+          <b>{% trans "Facilities:" %}</b><br />
+          ✓ {% trans "Balcony" %}<br />
+          ✓ {% trans "Terrace" %}<br />
+          ✓ {% trans "Air conditioning" %}<br />
+          ✓ {% trans "Safety deposit box" %}<br />
+          ✓ {% trans "Sofa" %}<br />
+          ✓ {% trans "Hardwood or parquet floors" %}<br />
+          ✓ {% trans "Linen" %}<br />
+          ✓ {% trans "Socket near the bed" %}<br />
+          ✓ {% trans "Soundproofing" %}<br />
+          ✓ {% trans "Private entrance" %}<br />
+          ✓ {% trans "Refrigerator" %}<br />
+          ✓ {% trans "Tea/Coffee maker" %}<br />
+          ✓ {% trans "Iron" %}<br />
+          ✓ {% trans "Heating" %}<br />
+          ✓ {% trans "Flat-screen TV" %}<br />
+          ✓ {% trans "Kitchenware" %}<br />
+          ✓ {% trans "Kitchenette" %}<br />
+          ✓ {% trans "Electric kettle" %}<br />
+          ✓ {% trans "Outdoor furniture" %}<br />
+          ✓ {% trans "Outdoor dining area" %}<br />
+          ✓ {% trans "Patio" %}<br />
+          ✓ {% trans "Laptop safe" %}<br />
+          ✓ {% trans "Wardrobe or closet" %}<br />
+          ✓ {% trans "Stovetop" %}<br />
+          ✓ {% trans "Dining area" %}<br />
+          ✓ {% trans "Dining table" %}<br />
+          ✓ {% trans "Private apartment in building" %}<br />
+          ✓ {% trans "Clothes rack" %}<br />
+          ✓ {% trans "Baby safety gates" %}<br />
+        </div>
+        <div class="col-lg-4">
+          <div class="mb-2">
+            <b>{% trans "In your private kitchenette:" %}</b><br />
+            ✓ {% trans "Refrigerator" %}<br />
+            ✓ {% trans "Kitchenware" %}<br />
+            ✓ {% trans "Electric kettle" %}<br />
+            ✓ {% trans "Stovetop" %}<br />
+            ✓ {% trans "Dining table" %}<br />
+          </div>
+          <br />
+          <div class="mb-2">
+            <b>{% trans "In your private bathroom:" %}</b><br />
+            ✓ {% trans "Toilet" %}<br />
+            ✓ {% trans "Shower" %}<br />
+            ✓ {% trans "Towels" %}<br />
+            ✓ {% trans "Hairdryer" %}<br />
+            ✓ {% trans "Toilet paper" %}<br />
+          </div>
+          <br />
+          <div class="mb-2">
+            <b>{% trans "View:" %}</b><br />
+            ✓ {% trans "Sea view" %}<br />
+            ✓ {% trans "Mountain view" %}<br />
+            ✓ {% trans "City view" %}<br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bd-footer py-2 py-md-2 mt-5 text-white" id="contact">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-md-6 d-flex align-items-center justify-content-start"
+            style="height: 500px"
+          >
+            <div>
+              <h4>{% trans "Contact us and we will be right with you" %}</h4>
+              <br />
+              📞 +355 69 565 9507 <br />
+              <a
+                href="mailto:anxhinebi@gmail.com"
+                class="link-offset-2 link-underline link-underline-opacity-0"
+                >✉️ {% trans "Email us!" %}</a
+              ><br />
+              📍 {% trans "Street: “Naim Frasheri”, Sarandë" %} <br />
+              <a
+                href="https://maps.app.goo.gl/hXpTMGwzPJvWn27AA"
+                target="_blank"
+                ><img
+                  src="{% static 'location.png' %}"
+                  class="hover-effect"
+                  alt="location"
+                  style="height: 40%; width: 90%"
+              /></a>
+            </div>
+          </div>
+          <div class="col-md-6 text-center">
+            <br />
+            <h1>{% trans "Travel reservation form" %}</h1>
+            <br />
+            <form
+              method="post"
+              autocomplete="on"
+              action="{% url 'contactForm' %}"
+            >
+              {% csrf_token %}
+              <div class="col-12">
+                <label class="visually-hidden" for="fullName" id="css"
+                  >{% trans "Full Name *:" %}</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="FullName LastName"
+                  id="fullName"
+                  name="fullName"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label class="visually-hidden" for="email" id="css"
+                  >Email *:</label
+                >
+                <div class="input-group">
+                  <div class="input-group-text">@</div>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="visually-hidden" for="package" id="css"
+                  >{% trans "Select the room you like *:" %}</label
+                >
+                <select
+                  class="form-select dark-input"
+                  name="package"
+                  id="package"
+                  required
+                >
+                  <option value="Deluxe Triple Room 101">
+                    {% trans "Room 101" %}
+                  </option>
+                  <option value="Apartment With View 102">
+                    {% trans "Apartment 102" %}
+                  </option>
+                  <option value="Apartment With View 103">
+                    {% trans "Apatment 103" %}
+                  </option>
+                  <option value="Deluxe Triple Room 104">
+                    {% trans "Room 104" %}
+                  </option>
+                  <option value="Deluxe Triple Room 105">
+                    {% trans "Room 105" %}
+                  </option>
+                  <option value="Deluxe Triple Room 106">
+                    {% trans "Room 106" %}
+                  </option>
+                  <option value="Deluxe Triple Room 107">
+                    {% trans "Room 107" %}
+                  </option>
+                  <option value="Deluxe Triple Room with Sea View 108">
+                    {% trans "Room 108" %}
+                  </option>
+                  <option value="Deluxe Triple Room with Sea View 109">
+                    {% trans "Room 109" %}
+                  </option>
+                </select>
+              </div>
+              <div class="col-12" style="padding-top: 2%">
+                <label class="visually-hidden" for="date" id="checkIn"
+                  >{% trans "Arrival date *:" %}</label
+                >
+                <div class="input-group">
+                  <input
+                    type="date"
+                    class="form-control checkIn"
+                    id="date"
+                    name="date"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="visually-hidden" for="noPeople" id="css"
+                  >{% trans "Number of People *:" %}</label
+                >
+                <div class="input-group">
+                  <div class="input-group-text">Number of People</div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="noPeople"
+                    name="noPeople"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="visually-hidden" for="message" id="css"
+                  >{% trans "Your Message:" %}</label
+                >
+                <textarea
+                  name="message"
+                  class="form-control"
+                  id="message"
+                  rows="4"
+                  placeholder="Type your message here..."
+                ></textarea>
+              </div>
+              <div class="col-12 mt-3">
+                <button type="submit" class="btn w-100">
+                  {% trans "Submit" %}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <p class="text-center mt-4">
+          Copyright &copy; 201. All rights reserved
+        </p>
+      </div>
+    </footer>
+    <script src="{% static 'projekt.js' %}"></script>
+  </body>
+</html>
